@@ -40,14 +40,16 @@ Docker从1.13版本之后采用时间线的方式作为版本号，分为社区�
   
 - 安装docker
 
-  ``` $ sudo yum install docker-ce  #由于repo中默认只开启stable仓库，故这里安装的是最新稳定版17.12.0  
-  $ sudo yum install <FQPN>  # 例如：sudo yum install docker-ce-17.12.0.ce  ``` 
+  ``` $ sudo yum install docker-ce  #由于repo中默认只开启stable仓库，故这里安装的是最新稳定版17.12.0  ``` 
+  
+  ``` $ sudo yum install <FQPN>  # 例如：sudo yum install docker-ce-17.12.0.ce  ``` 
 
 
 - 启动并加入开机启动
 
-  ``` $ sudo systemctl start docker  
-  $ sudo systemctl enable docker  ``` 
+  ``` $ sudo systemctl start docker  ``` 
+  
+  ``` $ sudo systemctl enable docker  ``` 
 
 
 - 验证安装是否成功(有client和service两部分表示docker安装启动都成功了)
