@@ -11,9 +11,12 @@
     <properties>
         <java.source.jdk>1.8</java.source.jdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
     </properties>
     <modules>
         <module>message-thrift-service-api</module>
+        <module>user-thrift-service-api</module>
+        <module>user-thrift-service</module>
     </modules>
 
 
