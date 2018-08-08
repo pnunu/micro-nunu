@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pnunu</groupId>
+    <artifactId>user-edge-service</artifactId>
+    <version>1.0</version>
+    <properties>
+        <java.source.jdk>1.8</java.source.jdk>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+        <pnunu.micro>1.0</pnunu.micro>
+        <thrift.version>0.10.0</thrift.version>
+        <spring.boot.redis.version>1.5.1.RELEASE</spring.boot.redis.version>
+        <gson.version>2.8.5</gson.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>pnunu</groupId>
+            <artifactId>user-thrift-service-api</artifactId>
+            <version>${pnunu.micro}</version>
+        </dependency>
+        <dependency>
+            <groupId>pnunu</groupId>
+            <artifactId>message-thrift-service-api</artifactId>
+            <version>${pnunu.micro}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>${thrift.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>${spring.boot.redis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${java.source.jdk}</source>
+                    <target>${java.source.jdk}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+</project>
