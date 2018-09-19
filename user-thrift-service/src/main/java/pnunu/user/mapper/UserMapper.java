@@ -13,11 +13,11 @@ import pnunu.thrift.user.UserInfo;
  */
 @Mapper
 public interface UserMapper {
-    @Select("select id, username, password, real_name as realName" +
+    @Select("select id, username, password, real_name as realName," +
             "mobile, email from pe_user where id = #{id}")
     UserInfo getUserById(@Param("id")int id);
 
-    @Select("select id, username, password, real_name as realName" +
+    @Select("select id, username, password, real_name as realName," +
             "mobile, email from pe_user where username = #{username}")
     UserInfo getUserByName(@Param("username")String username);
 

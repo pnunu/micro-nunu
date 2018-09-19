@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: pnunu
  * @Date: Created in 11:18 2018/8/9
- * @Description:
+ * @Description: redis 客户端
  */
 @Component
 public class RedisClient {
