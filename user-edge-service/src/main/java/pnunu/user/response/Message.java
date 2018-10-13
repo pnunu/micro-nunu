@@ -10,7 +10,12 @@ public class Message implements Serializable {
 
     private static final long serialVersionUID = 1182261373964419951L;
     /** 用户名或者密码错误 */
-    public static final Message USERNAME_PASSWORD_INVALID = Message.error("用户名或者密码错误");
+    public static final Message USERNAME_PASSWORD_INVALID = Message.error(5001, "用户名或者密码错误");
+    public static final Message MOBILE_OR_EMAIL_REQUIRED = Message.error(5002,"手机号邮箱不存在");
+    /** 发送验证码失败 */
+    public static final Message SEND_VRRIFY_FAILED = Message.error(5003, "发送验证码失败");
+    public static final Message VERIFY_CODE_BLANK = Message.error(5004, "验证码不能为空");
+    public static final Message VERIFY_CODE_ERROR = Message.error(5005, "验证码错误");
     private int code;
     private String msg;
     private Map<String, Object> data = new HashMap<String, Object>();
