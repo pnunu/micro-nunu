@@ -104,9 +104,9 @@ public class UserController extends BaseController {
             return Message.MOBILE_OR_EMAIL_REQUIRED;
         }
         if (result) {
-            return Message.SEND_VRRIFY_FAILED;
-        } else {
             return Message.ok();
+        } else {
+            return Message.SEND_VRRIFY_FAILED;
         }
     }
 

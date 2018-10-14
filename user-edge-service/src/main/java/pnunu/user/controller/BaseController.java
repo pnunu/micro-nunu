@@ -26,6 +26,7 @@ public abstract class BaseController {
     public Message exp(HttpServletRequest request, Exception ex) {
         Message msg = Message.error(ex.getMessage());
         logger.error(request.getRequestURL().toString() + ", \r\n error:" + ex.getMessage());
+        ex.printStackTrace();
         return msg;
     }
 

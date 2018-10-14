@@ -44,7 +44,7 @@ public class ServiceProvider {
     }
 
     private <T> T getServiceClient(String ip, int port, ServiceType serviceType) {
-        TSocket socket = new TSocket(ip, port, 3000);
+        TSocket socket = new TSocket(ip, port, 30000);
         // 帧传输
         TTransport tTransport = new TFramedTransport(socket);
         try {
