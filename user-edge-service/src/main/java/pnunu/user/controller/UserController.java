@@ -5,10 +5,7 @@ import org.apache.thrift.TException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pnunu.thrift.user.UserInfo;
 import pnunu.user.dto.UserDTO;
 import pnunu.user.redis.RedisClient;
@@ -24,6 +21,7 @@ import pnunu.user.util.RandomUtils;
  * @Description: 用户
  */
 @Controller
+@RequestMapping("/user")
 public class UserController extends BaseController {
 
     @Autowired
@@ -31,6 +29,11 @@ public class UserController extends BaseController {
 
     @Autowired
     private RedisClient redisClient;
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login() {
+        return "/login";
+    }
 
     @ResponseBody
     @RequestMapping(value = "login", method = RequestMethod.POST)
@@ -110,6 +113,12 @@ public class UserController extends BaseController {
         }
     }
 
+    /** 单点登录 */
+    @ResponseBody
+    @RequestMapping(value = "/authentication", method = RequestMethod.POST)
+    public UserDTO authentication(@RequestHeader("token") String token) {
+        return redisClient.get(token);
+    }
 
     private UserDTO toDTO(UserInfo userInfo) {
         UserDTO userDTO = new UserDTO();
