@@ -1,6 +1,8 @@
 package pnunu.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: pnunu
@@ -25,7 +28,8 @@ public abstract class LoginFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
-//    private static Cache<String, UserDTO> cache = CacheBuil
+    private static Cache<String, UserDTO> cache = CacheBuilder.newBuilder().maximumSize(10000)
+            .expireAfterAccess(3, TimeUnit.HOURS).build();
 
     private static String TOKEN_NAME = "token";
     private static String AUTHENTICATION_URL = "http://127.0.0.1:8082/";
@@ -46,13 +50,18 @@ public abstract class LoginFilter implements Filter {
         }
         UserDTO userDTO = null;
         if (StringUtils.isNotBlank(token)) {
-             userDTO = requestUserInfo(token);
+             userDTO = cache.getIfPresent(token);
+             if (null == userDTO) {
+                 userDTO = requestUserInfo(token);
+             }
         }
         if (userDTO == null) {
             response.sendRedirect(AUTHENTICATION_URL + "user/login");
             return;
         }
 
+        //// 存入缓存
+        cache.put(token, userDTO);
         login(request, response, userDTO);
         filterChain.doFilter(request, response);
     }
