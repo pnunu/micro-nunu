@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <properties>
+        <lombok.version>1.18.0</lombok.version>
         <java.source.jdk>1.8</java.source.jdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
@@ -19,7 +20,22 @@
         <module>user-thrift-service</module>
         <module>user-edge-service</module>
         <module>user-edge-service-client</module>
+        <module>course-dubbo-service-api</module>
+        <module>course-dubbo-service</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>

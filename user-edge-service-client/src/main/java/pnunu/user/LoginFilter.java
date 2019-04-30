@@ -53,6 +53,10 @@ public abstract class LoginFilter implements Filter {
              userDTO = cache.getIfPresent(token);
              if (null == userDTO) {
                  userDTO = requestUserInfo(token);
+                 if (userDTO != null) {
+                     //// 存入缓存
+                     cache.put(token, userDTO);
+                 }
              }
         }
         if (userDTO == null) {
@@ -60,8 +64,7 @@ public abstract class LoginFilter implements Filter {
             return;
         }
 
-        //// 存入缓存
-        cache.put(token, userDTO);
+
         login(request, response, userDTO);
         filterChain.doFilter(request, response);
     }
