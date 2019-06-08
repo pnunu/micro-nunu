@@ -10,5 +10,9 @@ import java.util.List;
  */
 public interface ICourseService {
 
+    /**
+     * 课程列表
+     * @return list
+     */
     List<CourseDTO> courseList();
 }
