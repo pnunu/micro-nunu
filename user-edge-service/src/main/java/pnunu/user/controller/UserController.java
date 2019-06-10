@@ -75,6 +75,7 @@ public class UserController extends BaseController {
                 return Message.VERIFY_CODE_BLANK;
             } else {
                 if (verifyCode.equals(code)) {
+                    user.setPassword(EncryptionUtils.md5(user.getPassword()));
                     // 注册用户
                     serviceProvider.getUserService().regiserUser(user);
                     return Message.ok("注册成功");
@@ -125,4 +126,5 @@ public class UserController extends BaseController {
         BeanUtils.copyProperties(userInfo, userDTO);
         return userDTO;
     }
+
 }
