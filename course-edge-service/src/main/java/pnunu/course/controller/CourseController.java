@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pnunu.course.dto.CourseDTO;
 import pnunu.course.service.ICourseService;
 import pnunu.user.dto.UserDTO;
@@ -17,11 +18,13 @@ import java.util.List;
  * @Description: 课程服务 controller
  */
 @Controller
+@RequestMapping
 public class CourseController {
 
     @Reference
     private ICourseService iCourseService;
 
+    @ResponseBody
     @RequestMapping(value = "courseList", method = RequestMethod.GET)
     public List<CourseDTO> courseList(HttpServletRequest request) {
         UserDTO dto = (UserDTO) request.getAttribute("user");
