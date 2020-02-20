@@ -10,5 +10,5 @@ import lombok.Data;
 @Data
 public class TeacherDTO extends UserDTO {
     private String intro;
-    private int stars;
+    private Integer stars;
 }

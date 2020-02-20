@@ -37,6 +37,7 @@ public class CourseServiceImpl implements ICourseService {
                         dto.setTeacherDTO(trans2Teacher(userInfo));
                     } catch (TException e) {
                         e.printStackTrace();
+                        return null;
                     }
                 }
             }

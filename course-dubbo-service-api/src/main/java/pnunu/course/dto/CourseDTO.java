@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 public class CourseDTO implements Serializable {
     private static final long serialVersionUID = 8048837803687847904L;
-    private int id;
+    private Integer id;
     private String title;
     private String description;
     private TeacherDTO teacherDTO;

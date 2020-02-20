@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @Author: pnunu
  * @Date: 2019/3/8 10:01
- * @Description:
+ * @Description: 课程
  */
 @Mapper
 public interface CourseMapper {
