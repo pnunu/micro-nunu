@@ -18,7 +18,7 @@ import java.util.List;
  * @Description: 课程服务 controller
  */
 @Controller
-@RequestMapping
+@RequestMapping("course")
 public class CourseController {
 
     @Reference

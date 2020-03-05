@@ -1,9 +1,9 @@
 package pnunu.course.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import org.apache.thrift.TException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import pnunu.course.dto.CourseDTO;
 import pnunu.course.mapper.CourseMapper;
 import pnunu.thrift.user.UserInfo;

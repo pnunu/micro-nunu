@@ -25,7 +25,6 @@ import java.util.concurrent.TimeUnit;
  * @Description: 用户登录filter
  */
 public abstract class LoginFilter implements Filter {
-    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
@@ -35,7 +34,6 @@ public abstract class LoginFilter implements Filter {
     private static String TOKEN_NAME = "token";
     private static String AUTHENTICATION_URL = "http://127.0.0.1:8082/";
 
-    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -109,7 +107,6 @@ public abstract class LoginFilter implements Filter {
         return null;
     }
 
-    @Override
     public void destroy() {
 
     }
